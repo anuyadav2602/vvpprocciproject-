@@ -26,12 +26,7 @@ pipeline{
             steps {
                sh 'mvn clean install -U -DskipTests -Dmaven.repo.local=~/.m2/repository'
                }
-               post {
-                success {
-                    echo 'Now Archiving...'
-                    archiveArtifacts artifacts: '**/target/*.war'
-                }
-            }
+               
            }
            stage('UNIT TEST'){
             steps {
